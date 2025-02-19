@@ -48,7 +48,7 @@ const MemeMekar = () => {
 
     return (
         <div className="h-screen w-screen bg-slate-200 flex flex-col items-center justify-center">
-            <div ref={memeRef} className="w-3/5 h-80 flex items-center relative bg-white p-2 shadow-lg " >
+            <div ref={memeRef} className="w-2/5 h-80 flex items-center relative bg-white p-2 shadow-lg " >
                 <img src={params.get("url")} alt="Meme" className="h-64  object-contain"  />
 
                 {texts.map((text) => (
