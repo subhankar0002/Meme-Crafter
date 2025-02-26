@@ -1,10 +1,28 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 export default function Contact({ darkMode }) {
+    const [showPopup, setShowPopup] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setShowPopup(true);
+        setName("");
+        setEmail("");
+        setMessage(""); // Show popup message
+        setTimeout(() => setShowPopup(false), 3000); // Hide after 3 sec
+    };
+
     return (
         <div className={`relative flex items-top justify-center min-h-[700px] transition-all duration-300 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
             } sm:items-center sm:pt-0`}>
             <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div className="mt-8 overflow-hidden">
                     <div className="grid grid-cols-1 md:grid-cols-2">
+                        {/* Contact Info Section */}
                         <div className={`p-6 mr-2 rounded-lg transition-all duration-300 ${darkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-800"
                             }`}>
                             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
@@ -13,6 +31,8 @@ export default function Contact({ darkMode }) {
                             <p className="text-normal text-lg sm:text-xl font-medium mt-2">
                                 Fill in the form to start a conversation
                             </p>
+
+                            {/* Address */}
                             <div className="flex items-center mt-8">
                                 <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor"
                                     strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -24,6 +44,8 @@ export default function Contact({ darkMode }) {
                                     Krishnanagar, WB, 741102
                                 </div>
                             </div>
+
+                            {/* Phone Number */}
                             <div className="flex items-center mt-4">
                                 <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor"
                                     strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -34,54 +56,68 @@ export default function Contact({ darkMode }) {
                                     8597874***
                                 </div>
                             </div>
+
+                            {/* Email */}
                             <div className="flex items-center mt-2">
                                 <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor"
                                     strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
                                     viewBox="0 0 24 24">
-                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0z" />
                                 </svg>
                                 <div className="ml-4 text-md tracking-wide font-semibold w-40">
                                     sahav0117@gmail.com
                                 </div>
                             </div>
                         </div>
-                        <form className="p-6 flex flex-col justify-center">
+
+                        {/* Contact Form */}
+                        <form onSubmit={handleSubmit} className="p-6 flex flex-col justify-center">
                             <div className="flex flex-col">
-                                <label htmlFor="name" className="hidden">Full Name</label>
                                 <input
                                     type="text"
                                     name="name"
                                     id="name"
                                     placeholder="Full Name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
                                     className={`w-100 mt-2 py-3 px-3 rounded-lg border font-semibold focus:outline-none transition-all duration-300 ${darkMode ? "bg-gray-800 border-gray-600 text-white focus:border-orange-500" :
-                                            "bg-white border-gray-400 text-gray-800 focus:border-orange-500"
+                                        "bg-white border-gray-400 text-gray-800 focus:border-orange-500"
                                         }`}
+                                    required
                                 />
                             </div>
+
                             <div className="flex flex-col mt-2">
-                                <label htmlFor="email" className="hidden">Email</label>
                                 <input
                                     type="email"
                                     name="email"
                                     id="email"
+                                    value={email}
                                     placeholder="Email"
+                                    onChange={(e) => setEmail(e.target.value)}
+
                                     className={`w-100 mt-2 py-3 px-3 rounded-lg border font-semibold focus:outline-none transition-all duration-300 ${darkMode ? "bg-gray-800 border-gray-600 text-white focus:border-orange-500" :
-                                            "bg-white border-gray-400 text-gray-800 focus:border-orange-500"
+                                        "bg-white border-gray-400 text-gray-800 focus:border-orange-500"
                                         }`}
+                                    required
                                 />
                             </div>
+
                             <div className="flex flex-col mt-2">
-                                <label htmlFor="message" className="hidden">Message</label>
                                 <textarea
                                     name="message"
                                     id="message"
+                                    value={message}
                                     placeholder="Send Message..."
                                     rows="4"
-                                    className={`w-100 mt-2 py-3 px-3 rounded-lg border font-semibold focus:outline-none transition-all duration-300 resize-none ${darkMode ? "bg-gray-800 border-gray-600 text-white focus:border-orange-500" :
-                                            "bg-white border-gray-400 text-gray-800 focus:border-orange-500"
-                                        }`}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    className={`custom-scrollbar w-100 mt-2 py-3 px-3 rounded-lg border font-semibold focus:outline-none transition-all duration-300 resize-none ${darkMode ? "bg-gray-800 border-gray-600 text-white focus:border-orange-500" : "bg-white border-gray-400 text-gray-800 focus:border-orange-500"}`}
+                                    required
                                 ></textarea>
+
+
                             </div>
+
                             <button
                                 type="submit"
                                 className="md:w-32 bg-orange-700 text-white font-bold py-3 px-6 rounded-lg mt-3 transition-all duration-300 hover:bg-orange-600"
@@ -92,6 +128,20 @@ export default function Contact({ darkMode }) {
                     </div>
                 </div>
             </div>
+
+            <AnimatePresence>
+                {showPopup && (
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 50 }}
+                        transition={{ duration: 0.5 }}
+                        className="fixed top-20 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg"
+                    >
+                        ✅ Message Sent Successfully!
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
