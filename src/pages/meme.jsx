@@ -26,7 +26,9 @@ const Memepage = ({ darkMode }) => {
                     ))}
                 </div>
             )}
+
         </div>
+        
     );
 };
 
