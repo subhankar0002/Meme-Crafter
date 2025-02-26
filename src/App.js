@@ -9,9 +9,7 @@ import Memepage from "./pages/meme";
 import MemeMekar from "./pages/mememaker";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false); // No localStorage
-
-  // Apply dark mode class to <html>
+  const [darkMode, setDarkMode] = useState(false); 
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");

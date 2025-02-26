@@ -5,7 +5,6 @@ export default function Contact({ darkMode }) {
             <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div className="mt-8 overflow-hidden">
                     <div className="grid grid-cols-1 md:grid-cols-2">
-                        {/* Contact Info */}
                         <div className={`p-6 mr-2 rounded-lg transition-all duration-300 ${darkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-800"
                             }`}>
                             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
@@ -14,8 +13,6 @@ export default function Contact({ darkMode }) {
                             <p className="text-normal text-lg sm:text-xl font-medium mt-2">
                                 Fill in the form to start a conversation
                             </p>
-
-                            {/* Location */}
                             <div className="flex items-center mt-8">
                                 <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor"
                                     strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -27,8 +24,6 @@ export default function Contact({ darkMode }) {
                                     Krishnanagar, WB, 741102
                                 </div>
                             </div>
-
-                            {/* Phone */}
                             <div className="flex items-center mt-4">
                                 <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor"
                                     strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -39,8 +34,6 @@ export default function Contact({ darkMode }) {
                                     8597874***
                                 </div>
                             </div>
-
-                            {/* Email */}
                             <div className="flex items-center mt-2">
                                 <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor"
                                     strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -52,10 +45,7 @@ export default function Contact({ darkMode }) {
                                 </div>
                             </div>
                         </div>
-
-                        {/* Contact Form */}
                         <form className="p-6 flex flex-col justify-center">
-                            {/* Full Name */}
                             <div className="flex flex-col">
                                 <label htmlFor="name" className="hidden">Full Name</label>
                                 <input
@@ -68,8 +58,6 @@ export default function Contact({ darkMode }) {
                                         }`}
                                 />
                             </div>
-
-                            {/* Email */}
                             <div className="flex flex-col mt-2">
                                 <label htmlFor="email" className="hidden">Email</label>
                                 <input
@@ -82,8 +70,6 @@ export default function Contact({ darkMode }) {
                                         }`}
                                 />
                             </div>
-
-                            {/* Phone Number */}
                             <div className="flex flex-col mt-2">
                                 <label htmlFor="message" className="hidden">Message</label>
                                 <textarea
@@ -96,9 +82,6 @@ export default function Contact({ darkMode }) {
                                         }`}
                                 ></textarea>
                             </div>
-
-
-                            {/* Submit Button */}
                             <button
                                 type="submit"
                                 className="md:w-32 bg-orange-700 text-white font-bold py-3 px-6 rounded-lg mt-3 transition-all duration-300 hover:bg-orange-600"

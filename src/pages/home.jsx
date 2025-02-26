@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 export default function Home({ darkMode }) {
     return (
         <div className={`relative w-full h-screen flex items-center justify-center ${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}`}>
-            {/* Background Image with Overlay */}
             <div className="absolute inset-0">
                 <img 
                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.dribbble.com%2Fusers%2F1040798%2Fscreenshots%2F15685874%2Fbackground3.gif&f=1&nofb=1&ipt=533179107b0001a4c9b7791891939c31f4595458b66ac9545c23db4e450d0625&ipo=images" 
@@ -12,8 +11,6 @@ export default function Home({ darkMode }) {
                 />
                 <div className={`absolute inset-0 ${darkMode ? " bg-opacity-70" : "bg-gradient-to-b from-transparent to-gray-900"}`}></div>
             </div>
-
-            {/* Content Section */}
             <div className="relative z-10 text-center px-6 sm:px-12">
                 <motion.h1 
                     initial={{ opacity: 0, scale: 0.8 }} 

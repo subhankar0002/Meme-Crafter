@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/card";
-import GetAllImage from "../components/api"; // Import correctly
-
-const Memepage = () => {
+import GetAllImage from "../components/api"; 
+import MemeCardSkeleton from "../components/skeleton"
+const Memepage = ({ darkMode }) => {
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true); // Loading state
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
         const fetchMemes = async () => {
-            setLoading(true); // Start loading
-            const memes = await GetAllImage(); // Await API call
+            setLoading(true); 
+            const memes = await GetAllImage(); 
             setData(memes);
-            setLoading(false); // Stop loading
+            setLoading(false); 
         };
         fetchMemes();
     }, []);
-
     return (
-        <div className="min-h-screen bg-white p-6">
+        <div className={`min-h-screen p-6 transition-all duration-300 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
             {loading ? ( 
-                <p className="text-center text-xl font-semibold">Loading memes...</p> 
+                <MemeCardSkeleton/> 
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {data.map((el) => (

@@ -5,12 +5,10 @@ export default function Footer({ darkMode }) {
         <footer
             className={`w-full py-4 px-6 flex flex-col md:flex-row items-center justify-between transition-all duration-300 ${
                 darkMode ? "bg-gray-900 text-gray-200" : "bg-slate-900 text-white"
-            }`}
-        >
+            }`}>
             <p className="w-full text-center text-sm md:flex-1">
                 &copy; {new Date().getFullYear()} Subhankar Saha
             </p>
-
             <div className="flex space-x-4 mt-3 md:mt-0 md:ml-auto">
                 <a
                     href="https://github.com/subhankar0002"
