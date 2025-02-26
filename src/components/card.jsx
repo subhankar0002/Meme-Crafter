@@ -1,26 +1,28 @@
 import React from 'react';
-import { useNavigate ,Link} from 'react-router-dom';
-const Card = (props) => {
+import { Link } from 'react-router-dom';
 
-  const nevigate= useNavigate()
+const Card = ({ image, title }) => {
   return (
-    
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white m-4">
-      <img className="w-full h-48 object-cover" src={props.image} alt />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2"> {props.title}</div>
+    <div className="w-full max-w-[300px] h-[400px] bg-slate-300 rounded-2xl overflow-hidden shadow-lg m-auto transition-transform transform hover:scale-105 hover:shadow-2xl">
+      <div className="w-full h-[250px]">
+        <img 
+          className="w-full h-full object-cover rounded-t-2xl" 
+          src={image} 
+          alt={title} 
+        />
       </div>
-      <div className="px-6 pt-4 pb-2">
-        <Link className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-        to={`/mememaker?url=${props.image}`}
+      <div className="px-4 py-3 text-center">
+        <h2 className="font-bold text-lg text-gray-800 truncate">{title}</h2>
+      </div>
+      <div className="px-4 pb-4 flex justify-center" >
+        <Link 
+          className="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition-all duration-300"
+          to={`/mememaker?url=${image}`}
         >
-          
-          Edit
-        
+          Edit Meme
         </Link>
       </div>
     </div>
-    
   );
 };
 
